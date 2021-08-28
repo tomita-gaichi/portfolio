@@ -1,0 +1,21 @@
+version: '3'
+services:  
+  db:
+    platform: linux/x86_64
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+     - mysql-db:/var/lib/mysql
+  web:
+    build: .
+    command: bundle exec rails s -b 0.0.0.0
+    volumes:
+      - .:/portfolio
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+volumes:
+  mysql-db:
+    driver: local
