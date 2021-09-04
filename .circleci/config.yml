@@ -17,11 +17,12 @@ jobs:
       - image: circleci/ruby:2.5.1
     steps:
       - checkout
-      - run:
-        name: update bundler
-        command: |
-          gem update --system
-          gem install bundler
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
+      - run: bundle config --local path vendor/bundle
       - run:
           name: bundle install
           command: bundle check || bundle install --jobs=8 --clean
