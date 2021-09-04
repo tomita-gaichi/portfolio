@@ -1,21 +1,42 @@
-version: '3'
+version: "3"
+volumes:
+  mysql_8_0-data:
+  vendor_bundle_2_5_1:
+  node_modules:
+
 services:  
   mysql:
     platform: linux/x86_64
-    image: mysql:5.7
+    image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
-    volumes:
-     - mysql-db:/var/lib/mysql
-  portfolio:
-    build: .
-    command: /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    volumes:
-      - .:/portfolio
+    networks:
+      - default
     ports:
-      - "3000:3000"
+      - '33306:3306'
+    volumes:
+      - mysql_8_0-data:/var/lib/mysql
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: mysql
+      SELENIUM_DRIVER_URL: "http://selenium_chrome:9515/wd/hub"
     depends_on:
       - mysql
-volumes:
-  mysql-db:
-    driver: local
+    networks:
+      - default
+    volumes:
+      - .:/portfolio
+      - /portfolio/log
+      - /portfolio/tmp
+      - /portfolio/vendor/bundle
+      - node_modules:/portfolio/node_modules
+    tty: true
+    stdin_open: true
+    command: bundle exec rails server -b 0.0.0.0

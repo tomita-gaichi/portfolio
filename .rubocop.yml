@@ -5,10 +5,6 @@ inherit_from:
 Rails:
   Enabled: true
 
-# 文字数上限
-LineLength:
-  Max: 130
-
 AllCops:
   Exclude:
     - 'db/**/*'
