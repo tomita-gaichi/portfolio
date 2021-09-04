@@ -4,8 +4,6 @@ jobs:
     working_directory: ~/portfolio
     docker:
       - image: circleci/ruby
-        environment:
-          BUNDLER_VERSION: 1.16.6
     steps:
       - checkout
       - setup_remote_docker
@@ -19,14 +17,6 @@ jobs:
       - image: circleci/ruby:2.5.1
     steps:
       - checkout
-      - run:
-          name: setup bundler
-          command: |
-            sudo gem update --system
-            sudo gem uninstall bundler
-            sudo rm /usr/local/bin/bundle
-            sudo rm /usr/local/bin/bundler
-            sudo gem install bundler
       - restore_cache:
           keys:
             - gemfiles-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
