@@ -18,6 +18,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
+      - run:
           name: Run rubocop
           command: bundle exec rubocop --parallel
       - save_cache:
