@@ -11,6 +11,15 @@
   </head>
 
   <body>
+  <div class="header-right-nav">
+    <% if current_user %>
+      <%= current_user.name %>さん
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
+    <% else %>
+      <%=link_to 'jijijijijiijiijijijijijij登', new_user_registration_path %>
+      <%=link_to 'ログイン', new_user_session_path %>
+    <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
