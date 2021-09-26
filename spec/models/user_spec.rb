@@ -69,23 +69,23 @@ RSpec.describe User, type: :model do
 
     context 'emailの形式が正しくない場合は、無効であること' do
       it 'is invalid' do
-        #emailの@以降に .（ドット）が 1つも含まれていない
+        # emailの@以降に .（ドット）が 1つも含まれていない
         user.email = 'user@example,com'
         expect(user).to be_invalid
 
-        #emailに@が含まれていない
+        # emailに@が含まれていない
         user.email = 'user_at_foo.org'
         expect(user).to be_invalid
 
-        #emailの最後が .（ドット）である
+        # emailの最後が .（ドット）である
         user.email = 'user.name@example.'
         expect(user).to be_invalid
 
-        #emailの@に続く文字列に記号「_」が含まれている
+        # emailの@に続く文字列に記号「_」が含まれている
         user.email = 'foo@bar_baz.com'
         expect(user).to be_invalid
 
-        #emailの@に続く文字列に記号「+」が含まれている
+        # emailの@に続く文字列に記号「+」が含まれている
         user.email = 'foo@bar+baz.com'
         expect(user).to be_invalid
       end
@@ -151,23 +151,23 @@ RSpec.describe User, type: :model do
 
     context 'passwordの形式が正しくない場合は、無効であること' do
       it 'is invalid' do
-        #passwordが５文字以下
+        # passwordが５文字以下
         user.password = 'A1aaa'
         expect(user).to be_invalid
 
-        #passwordが13文字以上
+        # passwordが13文字以上
         user.password = 'A1aaaaaaaaaaa'
         expect(user).to be_invalid
 
-        #passwordに英大文字が含まれていない
+        # passwordに英大文字が含まれていない
         user.password = '1aaaaa'
         expect(user).to be_invalid
 
-        #passwordに数字が含まれていない
+        # passwordに数字が含まれていない
         user.password = 'Aaaaaa'
         expect(user).to be_invalid
 
-        #passwordに小文字が含まれていない
+        # passwordに小文字が含まれていない
         user.password = '1AAAAA'
         expect(user).to be_invalid
       end

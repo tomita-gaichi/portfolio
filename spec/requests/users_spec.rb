@@ -10,9 +10,10 @@ RSpec.describe "Users", type: :request do
 
   describe 'POST /sessions' do
     let(:req_params) { { session_form: { password: user.authenticatable_salt } } }
+
     context '存在するユーザーの場合' do
-      binding.pry
       let(:user) { create(:user) }
+
       it 'ログインに成功する' do
         post user_session_path params: req_params
         expect(response).to redirect_to users_path
@@ -21,6 +22,7 @@ RSpec.describe "Users", type: :request do
 
     context '存在しないユーザーの場合' do
       let(:user) { build(:user) }
+
       it 'ログインに失敗する' do
         post user_session_path params: req_params
         expect(response).to have_http_status(200)
