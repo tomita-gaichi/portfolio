@@ -1,7 +1,8 @@
 FROM ruby:2.7.3
-RUN wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+RUN export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 && \
+    wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo 'deb http://dl.yarnpkg.com/debian/ stable main' > /etc/apt/sources.list.d/yarn.list
-RUN export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 && set -x && apt-get update -y -qq && apt-get install -yq nodejs yarn mariadb-client
+RUN  set -x && apt-get update -y -qq && apt-get install -yq nodejs yarn mariadb-client
 RUN mkdir /portfolio
 WORKDIR /portfolio
 COPY Gemfile /portfolio/Gemfile
