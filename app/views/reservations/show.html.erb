@@ -1,0 +1,18 @@
+<div class="devise-frame">
+  <h1>ご予約ありがとうございます！</h1>
+  <div class="devise-inner">
+    <div class="field">
+      <div class="day form-group">
+        <label><strong>日付：</strong></label>
+        <p style="font-size:20px; display:inline;"><%= @reservation.day %></p>
+      </div>
+    </div>
+    <div class="field">
+      <div class="time form-group">
+        <label><strong>時間：</strong></label>
+        <p style="font-size:20px; display:inline;"><%= @reservation.time %></p>
+      </div>
+    </div>
+    <%= link_to '予約画面に戻る', reservations_path, class: "back" %>
+  </div>
+</div>

@@ -5,6 +5,9 @@ inherit_from:
 Rails:
   Enabled: true
 
+LineLength:
+  Max: 155
+
 AllCops:
   Exclude:
     - 'db/**/*'

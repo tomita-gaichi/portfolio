@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="content-width">
+    <div class="main-title">
+      <h1>MY PAGE</h1>
+    </div>
+    <ul class="rig">
+      <li class="tt">名前</li>
+      <li><%= current_user.name %></li>
+      <li class="tt">メールアドレス</li>
+      <li><%= current_user.email %></li>
+      <li class="tt">予約一覧</li>
+      <table class="show-table">
+        <tbody>
+          <% @user_reservations.each do |user_reservation| %>
+            <tr>
+              <td align="center">
+                <%= user_reservation.day %>
+                <%= user_reservation.time %>
+              </td>
+              <td>
+                <%= link_to '削除', reservation_path(user_reservation.id), method: :delete, data: { confirm: "削除してよろしいですか？"}, class: "reservation-table btn btn--orange" %>
+              </td>
+            </tr>
+          <% end %>
+          <% if @user_reservations.blank? %>
+            <tr>
+              <td>予約はありません。</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <li class="tt">来院履歴</li>
+      <table class="show-table">
+        <tbody>
+          <% @visit_historys.each do |visit_history| %>
+            <tr>
+              <td>
+                <%= visit_history.day %>
+                <%= visit_history.time %>
+              </td>
+            </tr>
+          <% end %>
+          <% if @visit_historys.blank? %>
+            <tr>
+              <td>来院履歴はありません。</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </ul>
+  </div>
+</div>

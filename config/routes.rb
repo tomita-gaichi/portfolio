@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     get 'sign_in'  => 'devise/sessions#new'
     get 'sign_in'  => 'devise/sessions#create'
     get 'sign_out' => 'devise/sessions#destroy'
+    get 'discount'  => 'users/registrations#discount'
   end
+
+  resources :users
+
+  resources :reservations
   
   root 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,25 +1,78 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>パスタイム</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ja">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>パスタイム</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <div class="header-right-nav">
-    <% if current_user %>
-      <%= current_user.name %>さん
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
-    <% else %>
-      <%=link_to 'jijijijijiijiijijijijijij登', new_user_registration_path %>
-      <%=link_to 'ログイン', new_user_session_path %>
-    <% end %>
-    </div>
-    <%= yield %>
-  </body>
+<body>
+  <div class="body-container">
+    <header class="site-header">
+      <div class="site-header-inner contents-tidy header-width">
+        <div>
+          <%=link_to root_path do %>
+            <%= image_tag '/assets/store-logo-mark.png', style: 'width: 165px; height: 50px;' %>
+          <% end %>
+        </div>
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check">
+          <label for="menu-btn-check" class="menu-btn"><span></span></label>
+          <div class="menu-content">
+            <ul>
+              <li>
+                <% if current_user %>
+                  <%= link_to "#{current_user.name}さん", user_path(id: current_user) %>
+                <% else %>
+                  <%= link_to '会員登録する方こちら！', new_user_registration_path %>
+                <% end %>
+              </li>
+              <li>
+                <% if current_user %>
+                  <%= link_to 'WEB予約', reservations_path %>
+                <% else %>
+                  <%= link_to 'ログイン（すでに会員登録している方）', new_user_session_path %>
+                <% end %>
+              </li>
+              <% if current_user %>
+                <li>
+                  <%= link_to '本日のクーポン', discount_path %>
+                </li>
+              <% end %>
+              <li>
+                <a href="#informations">INFORMATION</a>
+              </li>
+              <li>
+                <a href="#map">MAP</a>
+              </li>
+              <% if current_user %>
+                <li>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer class="site-footer">
+      <div class="site-footer-main">
+        <a href="#" class="page-top">
+        </a>
+        <p>お電話で直接予約される方はこちら</p>
+        <div class="telephone-number">
+          <a href="tel:0120-17-1821">0120-17-1821</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
 </html>
