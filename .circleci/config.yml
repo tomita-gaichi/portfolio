@@ -21,10 +21,6 @@ jobs:
             set -x
             docker-compose up -build
       - run:
-          name: Setup database
-          command: |
-            docker-compose exec portfolio bash
-      - run:
           name: Run rspec
           command: docker-compose exec portfolio rspec
 
