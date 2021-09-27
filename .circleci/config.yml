@@ -8,18 +8,11 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Setup environment variable
-          command: |
-            echo "export COMPOSE_FILE=docker-compose.yml" >> $BASH_ENV
+          name: docker-compose build
+          command: docker-compose build
       - run:
-          name: Setup environment variable
-          command: |
-            echo "export COMPOSE_API_VERSION=1.41" >> $BASH_ENV
-      - run:
-          name: Start containers and verify it is working
-          command: |
-            set -x
-            docker-compose up -build
+          name: docker-compose up
+          command: docker-compose up -d
       - run:
           name: sleep for waiting launch db
           command: sleep 1
@@ -27,9 +20,9 @@ jobs:
           name: rails db:create and db:migrate
           command: docker-compose run portfolio rails db:create db:migrate
       - run:
-          name: Run rspec
-          command: docker-compose exec portfolio rspec
-
+          name: rspec
+          command: docker-compose run portfolio rspec
+     
   rubocop:
     working_directory: ~/portfolio
     docker:
