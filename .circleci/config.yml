@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - run:
+          name: Setup environment variable
+          command: |
+            echo "export COMPOSE_FILE=docker-compose.yml" >> $BASH_ENV
        - run:
           name: Setup environment variable
           command: |
@@ -29,7 +33,7 @@ jobs:
       - run:
           name: docker-compose down
           command: docker-compose down
-      
+
   rubocop:
     working_directory: ~/portfolio
     docker:
