@@ -11,7 +11,7 @@ const scrollBlue = function () {
 
 //============================== footer =========================
 document.addEventListener('DOMContentLoaded', function(){
-  const pagetopBtn = document.querySelector('page-top');
+  const pagetopBtn = document.querySelector('#page-top');
   if (!pagetopBtn){ return false;}
   pagetopBtn.addEventListener('click', scroll_to_top);
   function scroll_to_top(){
