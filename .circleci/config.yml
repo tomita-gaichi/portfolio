@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec portfolio bash -c 'yes n | bundle exec rails g spree:install --migrate --seed --sample --auto_accept'
+            docker-compose exec portfolio bash
       - run:
           name: Run rspec
           command: docker-compose exec portfolio rspec
