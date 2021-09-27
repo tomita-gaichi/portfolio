@@ -8,6 +8,9 @@ Rails:
 LineLength:
   Max: 155
 
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
 AllCops:
   Exclude:
     - 'db/**/*'
