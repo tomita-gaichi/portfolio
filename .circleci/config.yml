@@ -25,7 +25,7 @@ jobs:
           command: sleep 1
       - run:
           name: rails db:create and db:migrate
-          command: docker-compose run web rails db:create db:migrate
+          command: docker-compose run portfolio rails db:create db:migrate
       - run:
           name: Run rspec
           command: docker-compose exec portfolio rspec
