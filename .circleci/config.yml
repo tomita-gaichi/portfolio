@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+       - run:
+          name: Setup environment variable
+          command: |
+            echo "export COMPOSE_API_VERSION=1.41" >> $BASH_ENV
       - run:
           name: docker-compose build
           command: docker-compose build
@@ -22,7 +26,10 @@ jobs:
       - run:
           name: rspec
           command: docker-compose run portfolio rspec
-     
+      - run:
+          name: docker-compose down
+          command: docker-compose down
+      
   rubocop:
     working_directory: ~/portfolio
     docker:
