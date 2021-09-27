@@ -21,6 +21,12 @@ jobs:
             set -x
             docker-compose up -build
       - run:
+          name: sleep for waiting launch db
+          command: sleep 1
+      - run:
+          name: rails db:create and db:migrate
+          command: docker-compose run web rails db:create db:migrate
+      - run:
           name: Run rspec
           command: docker-compose exec portfolio rspec
 
