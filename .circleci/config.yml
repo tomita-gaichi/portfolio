@@ -7,7 +7,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-       - run:
+      - run:
+          name: Setup environment variable
+          command: echo "export COMPOSE_FILE=docker-compose.yml" >> $BASH_ENV
+      - run:
           name: Setup environment variable
           command: echo "export COMPOSE_API_VERSION=1.41" >> $BASH_ENV
       - run:
