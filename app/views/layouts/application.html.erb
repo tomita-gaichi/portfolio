@@ -16,7 +16,7 @@
       <div class="site-header-inner contents-tidy header-width">
         <div>
           <%=link_to root_path do %>
-            <%= image_tag '/assets/store-logo-mark.png', style: 'width: 165px; height: 50px;' %>
+            <%= image_tag '/assets/store-logo-mark.png', style: 'width: 165px; height: 50px;', :alt => 'store-logo-mark' %>
           <% end %>
         </div>
         <div class="hamburger-menu">
@@ -43,12 +43,14 @@
                   <%= link_to '本日のクーポン', discount_path %>
                 </li>
               <% end %>
-              <li>
-                <a href="#informations">INFORMATION</a>
-              </li>
-              <li>
-                <a href="#map">MAP</a>
-              </li>
+              <% if current_page?(root_path) %>
+                <li>
+                  <a href="#informations">INFORMATION</a>
+                </li>
+                <li>
+                  <a href="#map">MAP</a>
+                </li>
+              <% end %>
               <% if current_user %>
                 <li>
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete%>
@@ -66,9 +68,9 @@
       <div class="site-footer-main">
         <a href="#" class="page-top">
         </a>
-        <p>お電話で直接予約される方はこちら</p>
+        <p style="margin-bottom:0;">お電話で直接予約される方はこちら</p>
         <div class="telephone-number">
-          <a href="tel:0120-17-1821">0120-17-1821</a>
+          <a href="tel:0120-17-1821" class="line-height">0120-17-1821</a>
         </div>
       </div>
     </footer>

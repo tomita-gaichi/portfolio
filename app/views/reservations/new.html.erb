@@ -1,16 +1,16 @@
 <%= form_with model: @reservation, local: true, class: 'form' do |form| %>
   <%= render 'layouts/error_messages', model: form.object %>
   <div class="devise-frame">
-    <h1 class="">予約確認画面</h1>
+    <h1>予約確認画面</h1>
     <div class="devise-inner">
       <div class="field">
-        <div class="day form-group">
+        <div style="margin:0 10%;">
           <%= form.label :day, '日付', style: 'float: left; font-size: 15px;' %>
           <%= form.text_field :day, class: 'form-control', value: @day, readonly: true %>
         </div>
       </div>
       <div class="field">
-        <div class="time form-group">
+        <div style="margin:0 10%;">
           <%= form.label :time, '時間', style: 'float: left; font-size: 15px;' %>
           <%= form.text_field :time, class: 'form-control', value: @time, readonly: true %>
         </div>

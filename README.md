@@ -1,24 +1,31 @@
-# README
+# パスタイム（ヘアサロン）のホームページ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリケーション概要
+私の父と母が経営しているヘアサロンのホームページ（想定）です。 
+Web予約ページで時間帯を選択すればその時間に予約することが出来ます。  
+また会員登録をすればカット代が５％割引になります。
 
-Things you may want to cover:
+## URL
 
-* Ruby version
 
-* System dependencies
+## 利用方法
+### 会員登録、ログインについて
+* 会員登録には名前、メールアドレス、パスワードが必要です。
+* 名前は２０文字以内、メールアドレスはすでに登録されていないメールアドレス、パスワードは半角6~12文字英大文字・小文字・数字それぞれ１文字以上含む必要があります。
+* ログインには登録した時のメールアドレス、パスワードが必要です。
 
-* Configuration
+### 予約について
+* 会員登録しないと予約は出来ません。
+* 当日以降で当日の３ヶ月以内の日付で予約出来ます。
+* 予約はマイページで削除することもできます。
 
-* Database creation
+# 使用技術
+* Ruby 2.7.3
+* Rails 6.1.4.1
+* MySQL 15.1
+* Docker 20.10.7
+* Rspec
+* Heroku
+* CircleCI
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

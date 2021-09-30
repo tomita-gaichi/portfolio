@@ -1,7 +1,8 @@
-<h2><%= current_user.name %>さん、登録ありがとうございます!!<h2>
-<br>
-<h2>この画面を提示すればカット代５％OFF!!</h2>
-<br>
-<%= @date1 %>
-<br>
-<%= link_to 'ホームページへ戻る', root_path %>
+<div class="devise-frame">
+  <h1><%= current_user.name %>さん</h1>
+  <h1 class="line-height">登録ありがとうございます!!</h1>
+  <div class="devise-inner">
+    <h1 class="line-height">この画面を提示すればカット代５％OFF!!</h1>
+    <%= @date1 %>
+  </div>
+</div>

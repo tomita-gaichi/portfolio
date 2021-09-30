@@ -49,6 +49,10 @@ button.btn {
   padding: 6px 9px;
 }
 
+.line-height {
+  line-height: 1.4em;
+}
+
 .btn--orange,
 a.btn--orange {
   color: #fff;
@@ -380,6 +384,7 @@ a.btn--orange:hover {
 .site-footer-main {
   padding-left: 90px;
   padding-right: 90px;
+  white-space: nowrap;
 }
 
 .page-top {
@@ -457,7 +462,6 @@ a.btn--orange:hover {
 
 /*reservations*/
 .devise-frame {
-  max-width: 600px;
   text-align: center;
   padding: 24px;
   margin: 100px 10%;
@@ -467,7 +471,6 @@ a.btn--orange:hover {
 }
 
 .devise-inner {
-  width: 360px;
   margin: 0px auto;
 }
 
@@ -537,12 +540,12 @@ div.actions {
 }
 
 .message::marker {
-  color: #ecf0e9;
+  color: #fff;
 }
 
 .btn-primary {
   color: #fff;
-  background-color: #4a90e2
+  background-color: #4a90e2;
 }
 
 .reservation-title {
@@ -561,7 +564,7 @@ div.actions {
 }
 
 .reservation-table {
-  margin-left: 70px;
+  margin-left: 20px;
 }
 
 /*/reservations*/
