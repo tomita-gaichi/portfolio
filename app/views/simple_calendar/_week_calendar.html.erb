@@ -1,8 +1,8 @@
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: '前週'), calendar.url_for_previous_view %>
+  <div class="calendar-heading pt-3">
     <span class="calendar-title"><%= start_date.year %> <%= t('date.month_names')[start_date.month] %></span>
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
+    <p class="pt-1">※当日は予約できません</p>
     <% reservations = Reservation.reservations_after_three_month %>
   </div>
   <table class="table table-striped">

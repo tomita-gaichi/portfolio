@@ -5,11 +5,11 @@
     </div>
     <ul class="rig">
       <li class="tt">名前</li>
-      <li><%= current_user.name %></li>
+      <li class="mt-1 mb-4"><%= current_user.name %></li>
       <li class="tt">メールアドレス</li>
-      <li><%= current_user.email %></li>
+      <li class="mt-1 mb-4"><%= current_user.email %></li>
       <li class="tt">予約一覧</li>
-      <table class="show-table">
+      <table class="show-table mt-1">
         <tbody>
           <% @user_reservations.each do |user_reservation| %>
             <tr>
@@ -30,7 +30,7 @@
         </tbody>
       </table>
       <li class="tt">来院履歴</li>
-      <table class="show-table">
+      <table class="show-table mt-1">
         <tbody>
           <% @visit_historys.each do |visit_history| %>
             <tr>

@@ -4,22 +4,22 @@
   <div class="devise-inner">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="field form-row">
-        <div class="col-2 required-b pt-2">
+        <div class="required-b pt-2 mb-1">
         </div>
         <%= f.text_field :name, autofocus: true, placeholder: '名前', class: 'form-control col-10 px-2'%>
       </div>
       <div class="field form-row">
-        <div class="col-2 required-b pt-2">
+        <div class="required-b pt-2 mb-1">
         </div>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス', class: 'form-control col-10 px-2' %>
       </div>
       <div class="field form-row">
-        <div class="col-2 required-b pt-2">
+        <div class="required-b pt-2 mb-1">
         </div>
         <%= f.password_field :password, autocomplete: "new-password", placeholder: 'パスワード', class: 'form-control col-10 px-2' %>
       </div>
       <div class="field form-row">
-        <div class="col-2 required-b pt-2">
+        <div class="required-b pt-2 mb-1">
         </div>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'パスワード確認', class: 'form-control col-10 px-2' %>
       </div>
@@ -30,4 +30,4 @@
     <%=link_to 'すでに会員登録をしている方はログイン', new_user_session_path %>
   </div>
 </div>
-
+<%= link_to 'ホームページへ戻る', root_path, class: 'reservation-title' %>

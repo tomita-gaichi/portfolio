@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def discount
+    @user = User.find(current_user.id)
     @date1 = Date.current.strftime("%Y/%m/%d")
   end
 

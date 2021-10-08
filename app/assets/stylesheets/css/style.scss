@@ -354,12 +354,10 @@ a.btn--orange:hover {
 
 .rig li.tt {
   padding: 0.5em 0 0.2em;
-  color: #2C1B0B;
   border-bottom: 1px solid #D5D5D5;
 }
 
 .rig li {
-  padding: 0.5em 0 3em;
   line-height: 2.2;
 }
 
@@ -454,7 +452,7 @@ a.btn--orange:hover {
 .devise-frame {
   text-align: center;
   padding: 24px;
-  margin: 100px 10%;
+  margin: 100px 10% 0 10%;
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 1px 1px #b8b6b6;
@@ -465,7 +463,6 @@ a.btn--orange:hover {
 }
 
 .form-row {
-  display: flex;
   flex-wrap: wrap;
   margin-right: -5px;
   margin-left: -5px;
@@ -477,9 +474,8 @@ a.btn--orange:hover {
   padding-left: 5px;
 }
 
-.pt-2,
-.py-2 {
-  padding-top: .5rem !important;
+.required-b {
+  margin-right: 85%;
 }
 
 .required-b::before {
@@ -559,6 +555,14 @@ div.actions {
 
 .reservation-table {
   margin-left: 20px;
+}
+
+.reservations_error {
+  margin-top: 62px;
+}
+
+.from h2:last-child {
+  margin-top: 0;
 }
 
 /*/reservations*/

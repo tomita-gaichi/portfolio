@@ -66,13 +66,14 @@
       </div>
       </div>
       <%= render 'layouts/flash' %>
+      <%= render "devise/shared/error_messages", resource: resource %>
     </header>
     <main>
       <%= yield %>
     </main>
     <footer class="site-footer">
       <div class="site-footer-main">
-        <a id="#page-top" class="page-top">
+        <!--<a id="#page-top" class="page-top">-->
         </a>
         <p class="mt-3 mb-0">お電話で直接予約される方はこちら</p>
         <div class="telephone-number">
